@@ -1,0 +1,22 @@
+{
+    "name": "codilar/image360",
+    "description": "Image360 module for Magento 2",
+    "type": "magento2-module",
+    "version": "2.0.00",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "require": {
+        "magento/module-backend": ">=100.0",
+        "magento/module-catalog": ">=100.0"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Codilar\\Image360\\": ""
+        }
+    }
+}

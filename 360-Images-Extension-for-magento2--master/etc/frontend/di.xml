@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Catalog\Block\Product\ListProduct">
+        <plugin name="Image360ListProductPlugin" type="Codilar\Image360\Plugin\Product\ListProduct" sortOrder="1" disabled="false" />
+    </type>
+
+    <!-- NOTE: to fix exception when image doesn't exists -->
+    <preference for="Magento\Framework\Image" type="Codilar\Image360\Model\Image" />
+    <!-- NOTE: to use original image factory if some module overrides it -->
+    <virtualType name="imageFactoryForImage360" type="Magento\Framework\Image\Factory">
+        <arguments>
+            <argument name="adapterFactory" xsi:type="object">Codilar\Image360\Model\Image\AdapterFactory</argument>
+        </arguments>
+    </virtualType>
+    <type name="Codilar\Image360\Model\Product\Image">
+        <arguments>
+            <argument name="imageFactory" xsi:type="object">imageFactoryForImage360</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Catalog\Block\Product\View\Gallery">
+        <plugin name="Image360ProductViewGalleryPlugin" type="Codilar\Image360\Plugin\Product\View\Gallery" sortOrder="1000" />
+    </type>
+    <type name="Magento\ProductVideo\Block\Product\View\Gallery">
+        <plugin name="Image360ProductViewVideoGalleryPlugin" type="Codilar\Image360\Plugin\Product\View\VideoGallery" sortOrder="1000" />
+    </type>
+</config>

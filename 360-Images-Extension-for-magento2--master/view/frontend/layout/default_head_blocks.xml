@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <!-- NOTE: to odrer headers -->
+        <referenceBlock name="head.additional">
+            <container name="head.additional.imagetoolbox" after="-">
+                <container name="head.additional.imagethumb"></container>
+                <container name="head.additional.image360"></container>
+                <container name="head.additional.imagezoom"></container>
+                <container name="head.additional.imagezoomplus"></container>
+                <container name="head.additional.imagescroll"></container>
+                <container name="head.additional.imageslideshow"></container>
+            </container>
+        </referenceBlock>
+        <referenceContainer name="head.additional.image360">
+            <block class="Codilar\Image360\Block\Html\Head" name="image360-header" template="Codilar_Image360::html/head.phtml" />
+        </referenceContainer>
+    </body>
+</page>

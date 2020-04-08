@@ -1,0 +1,31 @@
+<?php
+/**
+ * Codilar Technologies Pvt. Ltd.
+ * @package   Image360
+ * @copyright   Copyright (c) 2016 Codilar. (http://www.codilar.com)
+ * @author       Codilar Team
+ **/
+
+if (!$block->isVisibile()) {
+    return;
+}
+
+$jsUrl = $block->getViewFileUrl('Codilar_Image360::js/image360.js');
+$jsPath = dirname($jsUrl);
+$cssUrl = $block->getViewFileUrl('Codilar_Image360::css/image360.css');
+$cssPath = dirname($cssUrl);
+
+$tool = $block->imageToolboxHelper->getToolObj();
+$tool->params->resetProfile();
+
+$headers = $tool->getHeadersTemplate($jsPath, $cssPath);
+
+//NOTE: fix to support 'Minify JavaScript/CSS Files' options
+if (preg_match('#\.min\.css$#', $cssUrl)) {
+    $headers = preg_replace('#\.css\b#', '.min.css', $headers);
+}
+if (preg_match('#\.min\.js$#', $jsUrl)) {
+    $headers = preg_replace('#\.js\b#', '.min.js', $headers);
+}
+
+echo $headers;

@@ -1,0 +1,19 @@
+
+<?php
+/**
+ * Codilar Technologies Pvt. Ltd.
+ * @package   Image360
+ * @copyright   Copyright (c) 2016 Codilar. (http://www.codilar.com)
+ * @author       Codilar Team
+ **/
+/**
+ * @var $block \Magento\Framework\View\Element\Template
+ */
+
+$image360Block = $this->getLayout()->createBlock('\Codilar\Image360\Block\Product\View\Gallery');
+
+if ($image360Block) {
+    if ($image360Block->isEffectEnabled() && $image360Block->isStandaloneMode()) {
+        echo $image360Block->getSpinHtml();
+    }
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="head.additional.image360">
+            <block class="Codilar\Image360\Block\Html\Head" name="image360-header" template="Codilar_Image360::html/head.phtml">
+                <arguments>
+                    <argument name="page" xsi:type="string">product</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+
+        <referenceContainer name="product.info.media">
+            <block class="Codilar\Image360\Block\Product\View\Gallery" name="product.info.media.image360" template="product/view/gallery.phtml" />
+            <!-- NOTE: to display Image 360 spin separately -->
+            <block class="Magento\Framework\View\Element\Template" name="product.info.media.spin" after="product.info.media.image360" template="Codilar_Image360::product/view/spin.phtml" />
+            <block class="Codilar\Image360\Block\Product\View\ProductVideoGallery" name="product.info.media.video" after="product.info.media.image360" template="Magento_ProductVideo::product/view/gallery.phtml" />
+        </referenceContainer>
+
+        <!-- NOTE: to display product.info.media.video after product.info.media.image, product.info.media.image360, etc -->
+        <move element="product.info.media.video" destination="product.info.media" after="-" />
+    </body>
+</page>

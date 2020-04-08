@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <update id="Codilar_Codilar::imagetoolbox"
+            title="Codilar Img360"
+            module="Codilar_Image360"
+            sortOrder="75"
+            resource="Codilar_Codilar::imagetoolbox"/>
+        <add id="Codilar_Image360::image360_settings_edit"
+            title="Image 360 Configuration"
+            module="Codilar_Image360"
+            sortOrder="10"
+            parent="Codilar_Codilar::imagetoolbox"
+            action="image360/settings/edit"
+            resource="Codilar_Image360::image360_settings_edit"/>
+
+    </menu>
+</config>

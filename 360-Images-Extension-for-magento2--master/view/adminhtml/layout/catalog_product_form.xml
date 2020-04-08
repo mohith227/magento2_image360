@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/layout_generic.xsd">
+    <referenceContainer name="product_form">
+        <block name="image360" class="Codilar\Image360\Block\Adminhtml\Product\Edit\Image360">
+            <arguments>
+                <argument name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Image 360</item>
+                    <item name="collapsible" xsi:type="boolean">true</item>
+                    <item name="opened" xsi:type="boolean">false</item>
+                    <item name="sortOrder" xsi:type="string">23</item>
+                    <item name="canShow" xsi:type="boolean">true</item>
+                    <item name="componentType" xsi:type="string">fieldset</item>
+                </argument>
+            </arguments>
+            <block name="image360_spin_options" class="Codilar\Image360\Block\Adminhtml\Product\Edit\Image360\SpinOptions" />
+            <block name="image360_gallery" class="Codilar\Image360\Block\Adminhtml\Product\Edit\Image360\Gallery">
+                <block class="Codilar\Image360\Block\Adminhtml\Product\Edit\Image360\Gallery\Content" as="image360_gallery_content">
+                    <arguments>
+                        <argument name="config" xsi:type="array">
+                            <item name="parentComponent" xsi:type="string">product_form.product_form.block_image360.block_image360</item>
+                        </argument>
+                    </arguments>
+                </block>
+            </block>
+        </block>
+    </referenceContainer>
+</layout>

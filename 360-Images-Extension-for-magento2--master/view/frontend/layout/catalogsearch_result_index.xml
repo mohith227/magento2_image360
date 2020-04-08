@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="head.additional.image360">
+            <block class="Codilar\Image360\Block\Html\Head" name="image360-header" template="Codilar_Image360::html/head.phtml">
+                <arguments>
+                    <argument name="page" xsi:type="string">category</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+
+        <referenceBlock name="category.product.type.details.renderers">
+            <block class="Codilar\Image360\Block\Product\Renderer\Listing\Configurable" name="configurable.image360" template="Magento_Swatches::product/listing/renderer.phtml" before="-" />
+        </referenceBlock>
+    </body>
+</page>
